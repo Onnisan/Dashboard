@@ -5,7 +5,7 @@
 namespace Dashboard.Migrations
 {
     /// <inheritdoc />
-    public partial class firstMigration : Migration
+    public partial class MyTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

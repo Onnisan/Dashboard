@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dashboard.Migrations.Dashboard
 {
     [DbContext(typeof(DashboardContext))]
-    [Migration("20230822173633_AuthTable")]
-    partial class AuthTable
+    [Migration("20230824164114_MyTableAuth")]
+    partial class MyTableAuth
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
