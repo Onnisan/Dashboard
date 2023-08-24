@@ -42,7 +42,17 @@ namespace Dashboard.Controllers
             }
             return RedirectToAction("Index");   
         }
-        [HttpPost]
+		public IActionResult DeleteProductDetails(int id)
+		{
+			var productDetails = _context.ProductDetails.SingleOrDefault(p => p.Id == id);
+			if (productDetails != null)
+			{
+				_context.ProductDetails.Remove(productDetails);
+				_context.SaveChanges();
+			}
+			return RedirectToAction("ProductDetails");
+		}
+		[HttpPost]
 		public IActionResult ProductDetails(int id)
 		{
 			var products = _context.Products.ToList();
@@ -79,7 +89,21 @@ namespace Dashboard.Controllers
             return RedirectToAction("Index");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult EditProductDetails(int id)
+		{
+			var productDetails = _context.ProductDetails.SingleOrDefault(p => p.Id == id);
+			return View(productDetails);
+		}
+
+		public IActionResult UpdateProductDetails(ProductDetails productDetails)
+		{
+			_context.ProductDetails.Update(productDetails);
+			_context.SaveChanges();
+
+			return RedirectToAction("ProductDetails");
+		}
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

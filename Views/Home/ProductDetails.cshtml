@@ -195,7 +195,7 @@
 											</div>
 											<!--end::Filter-->
 										
-											<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> إضافة منتج جديد</button>
+											<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> إضافة تفاصيل منتج جديد</button>
 											<!--end::Add customer-->
 										</div>
 										<!--end::Toolbar-->
@@ -271,10 +271,10 @@
 															@item.Notes
 														</td>
 													<td>
-														<a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+														<a asp-action="DeleteProductDetails" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
 													</td>
 													<td>
-														<a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
+														<a asp-action="EditProductDetails" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
 													</td>
 												</tr>
 											}

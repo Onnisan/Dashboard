@@ -1,0 +1,66 @@
+﻿@model ProductDetails;
+@{
+}
+<body dir="rtl" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+	<h1>تعديل بيانات تفاصيل المنتج</h1>
+	<form asp-action="UpdateProductDetails" method="post">
+		<input type="hidden" asp-for="@Model.Id" />
+		<div class="row">
+			<div class="col">
+				<label>
+					وصف المنتج
+				</label>
+				<input type="text" asp-for="@Model.Descreption" class="form-control font-control-sm" />
+			</div>
+			<div class="col">
+				<label>
+					سعر المنتج
+				</label>
+				<input type="number" asp-for="@Model.Price" class="form-control font-control-sm" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label>
+					الطراز
+				</label>
+				<input type="text" asp-for="@Model.Model" class="form-control font-control-sm" />
+			</div>
+			<div class="col">
+				<label>
+					الكمية
+				</label>
+				<input type="number" asp-for="@Model.Qty" class="form-control font-control-sm" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label>
+					اللون
+				</label>
+				<input type="text" asp-for="@Model.Color" class="form-control font-control-sm" />
+			</div>
+			<div class="col">
+				<label>
+					الصورة
+				</label>
+				<input type="text" asp-for="@Model.Image" class="form-control font-control-sm" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label>
+					ملاحظات
+				</label>
+				<input type="text" asp-for="@Model.Notes" class="form-control font-control-sm" />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col d-flex justify-content-center">
+				<button type="submit" class="btn btn-primary">حفظ</button>
+			</div>
+
+		</div>
+	</form>
+</body>
