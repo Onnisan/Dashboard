@@ -15,5 +15,8 @@ namespace Dashboard.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Invoice>  Invoices { get; set; }
 
+        public DbSet<PaymentAccept> PaymentAccepts { get; set; }
+
+        public DbSet<Cart> Carts { get; set; }
     }
 }

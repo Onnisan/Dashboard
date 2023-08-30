@@ -2,6 +2,7 @@
 using Dashboard.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Diagnostics;
 
 namespace Dashboard.Controllers
@@ -19,6 +20,12 @@ namespace Dashboard.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            var name = HttpContext.User.Identity.Name;
+           /* CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddMinutes(10);
+            Response.Cookies.Append("Name", name, options);*/
+            HttpContext.Session.SetString("Name", name);
+            ViewBag.Name = name;
             var product = _context.Products.ToList();
             return View(product);
         }
@@ -65,6 +72,8 @@ namespace Dashboard.Controllers
             var products = _context.Products.ToList();
             var productDetails = _context.ProductDetails.ToList();
             ViewBag.ProductDetails = productDetails;
+            //ViewBag.Name = Request.Cookies["Name"];
+            ViewBag.Name = HttpContext.Session.GetString("Name");
             return View(products);
         }
 
@@ -103,7 +112,20 @@ namespace Dashboard.Controllers
 			return RedirectToAction("ProductDetails");
 		}
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult PaymentAccept() { 
+            return View(); 
+        }
+        [HttpPost]
+        public IActionResult PaymentAccept(PaymentAccept paymentAccept)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

@@ -93,6 +93,18 @@
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
+											<a class="menu-link" asp-action="PaymentAccept">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title" style="font-family:Cairo"> بطاقات الدفع المعتمدة </span>
+											</a>
+											<!--end:Menu link-->
+										</div>
+										<!--end:Menu item-->
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu link-->
 											<a class="menu-link" asp-action="Index">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
@@ -209,6 +221,7 @@
 								<!--end::Card header-->
 								<!--begin::Card body-->
 								<div class="card-body pt-0">
+									<h1> Hi @ViewBag.Name</h1>
 									<!--begin::Table-->
 									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
 										<!--begin::Table head-->
@@ -274,6 +287,22 @@
 															اسم المنتج
 														</label>
 														<input type="text" name="ProductName" class="form-control form-control-sm" />
+													</div>
+												</div>
+																								<div class="row">
+													<div class="col">
+														<label >
+															سعر المنتج
+														</label>
+														<input type="number" name="Price" class="form-control form-control-sm" />
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<label>
+															صورة المنتج
+														</label>
+														<input type="text" name="Image" class="form-control form-control-sm" />
 													</div>
 												</div>
 

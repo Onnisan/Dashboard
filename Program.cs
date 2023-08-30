@@ -24,6 +24,8 @@ builder.Services.AddDefaultIdentity<DashboardUser>(options => options.SignIn.Req
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,9 +45,11 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Shopping}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+app.UseSession();
 
 app.UseDeveloperExceptionPage();
 
