@@ -77,5 +77,29 @@ namespace Dashboard.Controllers.Shopping
 
             return View(cart);
         }
+
+        [Authorize]
+        public IActionResult Invoice(int id)
+        {
+            var cart = _context.Carts.SingleOrDefault(p => p.Id == id);
+            var invoice = new Invoice()
+            {
+                IdCostumer = cart.IdCostumer,
+                ProductId = cart.MyProductId,
+                ProductColor = cart.Color,
+                ProductImages = cart.Images,
+                Price = cart.Price,
+                Total = cart.Total,
+                NameProduct = cart.ProductName,
+                Tax = cart.Tax,
+                Discount = 0,
+                QTY = 1,
+            };
+
+            _context.Invoices.Add(invoice);
+            _context.SaveChanges();
+
+            return View(invoice);
+        }
     }
 }

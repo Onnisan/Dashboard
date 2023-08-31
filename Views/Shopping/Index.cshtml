@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Product>;
 @{
     Layout = "~/Views/Shared/_LayoutShopping.cshtml";
+    ViewData["Title"] = "Home Page";
 }
 
         <div class="container py-5">
@@ -41,8 +42,8 @@
                                     </div>
                                     <h6 class="text-success">Free shipping</h6>
                                     <div class="d-flex flex-column mt-4">
-                                        <a asp-action="ProductDetails" asp-route-id="@item.Id" class="btn btn-primary btn-sm">تفاصيل المنتج</a>
-                                        <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                                        <a asp-action="ProductDetails" asp-route-id="@item.Id" class="btn btn-primary">تفاصيل المنتج</a>
+                                        <button class="btn btn-outline-primary mt-2" type="button">
                                             أضف إلى المفضلة
                                         </button>
                                     </div>

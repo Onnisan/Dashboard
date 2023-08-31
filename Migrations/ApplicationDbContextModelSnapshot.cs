@@ -110,23 +110,36 @@ namespace Dashboard.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CostumerId")
-                        .HasColumnType("int");
-
                     b.Property<float>("Discount")
                         .HasColumnType("real");
+
+                    b.Property<string>("IdCostumer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameProduct")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<string>("ProductColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ProductImages")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("QTY")
                         .HasColumnType("int");
 
-                    b.Property<float>("Tax")
-                        .HasColumnType("real");
+                    b.Property<double>("Tax")
+                        .HasColumnType("float");
 
                     b.Property<double>("Total")
                         .HasColumnType("float");
