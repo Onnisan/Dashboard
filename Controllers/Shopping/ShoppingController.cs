@@ -105,7 +105,7 @@ namespace Dashboard.Controllers.Shopping
             message.Subject = "Invoice order No." + invoice.Id;
             message.Body = new TextPart("html")
             {
-                Text = "<h1>Here is a link for your <a href='abdullahdashboardtuwaiq.azurewebsites.net/shopping/invoice/" + invoice.Id+ "'>invoice</a></h1>"
+                Text = "<h1>Here is a link for your <a href='abdullahdashboardtuwaiq.azurewebsites.net/Shopping/CheckInvoice/" + invoice.Id+ "'>invoice</a></h1>"
 			};
 
 
@@ -127,5 +127,17 @@ namespace Dashboard.Controllers.Shopping
 
             return View(invoice);
         }
-    }
+		[Authorize]
+		public IActionResult CheckInvoice(int id)
+		{
+			var invoice = _context.Invoices.SingleOrDefault(p => p.Id == id);
+            
+            if (invoice == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+			return View(invoice);
+		}
+	}
 }
