@@ -14,19 +14,19 @@
             <div class="row">
 
               <div class="col-lg-7">
-                <h5 class="mb-3"><a href="#!" class="text-body"><i
-                      class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
+                <h5 class="mb-3"><a asp-action="Index" class="text-body"><i
+                      class="fas fa-long-arrow-alt-right me-2"></i>متابعة الشراء</a></h5>
                 <hr>
 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <div>
-                    <p class="mb-1">Shopping cart</p>
-                    <p class="mb-0">You have 4 items in your cart</p>
+                    <p class="mb-1">سلة المشتريات</p>
+                    @*<p class="mb-0">You have 4 items in your cart</p>*@
                   </div>
-                  <div>
+                 @*<div>
                     <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
                         class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
-                  </div>
+                  </div>*@
                 </div>
 
                 <div class="card mb-3">
@@ -44,9 +44,9 @@
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center">
-                        <div style="width: 50px;">
+                        @*<div style="width: 50px;">
                           <h5 class="fw-normal mb-0">2</h5>
-                        </div>
+                        </div>*@
                         <div style="width: 80px;">
                           <h5 class="mb-0">@Model.Price</h5>
                         </div>
@@ -118,8 +118,8 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                      <p class="mb-2">ضريبة القيمة المضافة</p>
-                      <p class="mb-2">%@(Model.Tax*100)</p>
+                      <p class="mb-2">مبلغ ضريبة القيمة المضافة (%@(Model.Tax*100))</p>
+                      <p class="mb-2">@(Model.Tax*Model.Price)</p>
                     </div>
 
                     <div class="d-flex justify-content-between mb-4">

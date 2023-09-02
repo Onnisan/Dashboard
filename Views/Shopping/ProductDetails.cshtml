@@ -12,7 +12,9 @@
         {
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col">
-                    <p><span class="h2">تفاصيل المنتج </span><span class="h4">(1 item in your cart)</span></p>
+                    <p><span class="h2">تفاصيل المنتج </span>
+                        @*<span class="h4">(1 item in your cart)</span>*@
+                        </p>
 
                     <div class="card mb-4">
                         <div class="card-body p-4">
@@ -50,8 +52,8 @@
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-center">
                                     <div>
-                                        <p class="small text-muted mb-4 pb-2">Total</p>
-                                        <p class="lead fw-normal mb-0">$799</p>
+                                        <p class="small text-muted mb-4 pb-2">مبلغ ضريبة القيمة المضافة</p>
+                                        <p class="lead fw-normal mb-0">@(item.Price*0.15)</p>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +66,7 @@
 
                             <div class="float-end">
                                 <p class="mb-0 me-5 d-flex align-items-center">
-                                    <span class="small text-muted me-2">Order total:</span> <span class="lead fw-normal">$799</span>
+                                    <span class="small text-muted me-2">المجموع النهائي: </span> <span class="lead fw-normal">@(item.Price+item.Price*0.15)</span>
                                 </p>
                             </div>
 
@@ -72,7 +74,7 @@
                     </div>
 
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-light btn-lg me-2">العودة الى المنتجات</button>
+                        <a asp-action="Index" class="btn btn-light btn-lg me-2">العودة الى المنتجات</a>
                         <a asp-action="Checkout" asp-route-id="@item.Id" class="btn btn-primary">اشتري الآن</a>
                     </div>
 

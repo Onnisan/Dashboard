@@ -2,23 +2,25 @@
 @{
 }
 <body dir="rtl" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
-	<h1>تعديل بيانات المنتج</h1>
-	<form asp-action="UpdateProduct" method="post">
-		<input type="hidden" asp-for="@Model.Id" />
-		<div class="row">
-			<div class="col">
-				<label>
-					اسم المنتج
-				</label>
-				<input type="text" asp-for="@Model.ProductName" class="form-control font-control-sm" />
+	<div class="container">
+		<h1>تعديل بيانات المنتج</h1>
+		<form asp-action="UpdateProduct" method="post">
+			<input type="hidden" asp-for="@Model.Id" />
+			<div class="row">
+				<div class="col">
+					<label>
+						اسم المنتج
+					</label>
+					<input type="text" asp-for="@Model.ProductName" class="form-control font-control-sm" />
+				</div>
 			</div>
-		</div>
 
-		<div class="row">
-			<div class="col d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">حفظ</button>
-			</div>
+			<div class="row mt-3">
+				<div class="col d-flex justify-content-center">
+					<button type="submit" class="btn btn-primary">حفظ</button>
+				</div>
 			
-		</div>
-	</form>
+			</div>
+			</form>
+    </div>
 </body>

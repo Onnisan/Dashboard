@@ -70,10 +70,14 @@
                                     <!--begin:Menu item-->
                                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show menu-lg-down-accordion menu-here-bg me-0 me-lg-2">
                                         <!--begin:Menu link-->
-                                        <span class="menu-link">
-                                            <span class="menu-title">Dashboards</span>
+                                        <a class="menu-link mx-3" asp-action="Index">
+                                            <span class="menu-title d-flex justify-content-center">الرئيسية للوحة التحكم</span>
                                             <span class="menu-arrow d-lg-none"></span>
-                                        </span>
+                                        </a>
+                                        <a class="menu-link mx-3" asp-controller="Shopping" asp-action="Index">
+                                            <span class="menu-title d-flex justify-content-center">الموقع</span>
+                                            <span class="menu-arrow d-lg-none"></span>
+                                        </a>
                                         <!--end:Menu link-->
                                         <!--begin:Menu sub-->
                                         <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0 w-100 w-lg-850px">
@@ -132,6 +136,7 @@
         <!--end:Menu item-->
         </div>
         <!--end::Menu-->
+        <!--end::Menu-->
         </div>
                             <partial name="_LoginPartial" />
         <!--end::Menu wrapper-->
@@ -147,9 +152,7 @@
 
     </header>
     <main role="main" class="pb-3">
-        <div class="container">
             @RenderBody()
-        </div>
     </main>
 
 

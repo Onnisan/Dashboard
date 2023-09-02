@@ -79,7 +79,7 @@ namespace Dashboard.Controllers.Shopping
         }
 
         [Authorize]
-        public IActionResult Invoice(int id)
+        public async Task<IActionResult> Invoice(int id)
         {
             var cart = _context.Carts.SingleOrDefault(p => p.Id == id);
             var invoice = new Invoice()
@@ -98,6 +98,32 @@ namespace Dashboard.Controllers.Shopping
 
             _context.Invoices.Add(invoice);
             _context.SaveChanges();
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Invoice order No."+invoice.Id, "onnisky@gmail.com")); //sender
+            message.To.Add(MailboxAddress.Parse(invoice.IdCostumer.ToString())); // reciever
+            message.Subject = "Invoice order No." + invoice.Id;
+            message.Body = new TextPart("plain")
+            {
+                Text = "<h1>Here is a link for your </h1><a href='abdullahdashboardtuwaiq.azurewebsites.net/shopping/invoice/" + invoice.Id+"'>invoice</a>"
+            };
+
+
+            using (var client = new SmtpClient())
+            {
+                try
+                {
+                    client.Connect("smtp.gmail.com", 587);
+                    client.Authenticate("onnisky@gmail.com", "svfbanzyijbqivet");
+                    await client.SendAsync(message);
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message.ToString());
+                    client.Disconnect(true);
+                }
+            }
 
             return View(invoice);
         }
