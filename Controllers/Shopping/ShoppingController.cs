@@ -33,7 +33,7 @@ namespace Dashboard.Controllers.Shopping
             message.From.Add(new MailboxAddress("Test Email", "onnisky@gmail.com")); //sender
             message.To.Add(MailboxAddress.Parse("abdullahplanet@yahoo.com")); // reciever
             message.Subject="Test message from my apps";
-            message.Body = new TextPart("plain")
+            message.Body = new TextPart("html")
             {
                 Text = "<h1>This is a test message from my App</h1>"
             };
